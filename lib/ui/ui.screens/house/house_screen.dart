@@ -1,11 +1,11 @@
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import '../../../model/houseOwnerModel.dart';
 import '../../ui.widgets/background_body.dart';
-import 'house_details.dart';
 import 'house_owner.dart';
-import 'package:my_sylhet_version_1/ui/ui.screens/house/house_owner.dart';
+import 'house_details.dart';
 
 class HouseScreen extends StatefulWidget {
   const HouseScreen({super.key});
@@ -22,14 +22,14 @@ class _HouseScreenState extends State<HouseScreen> {
 // Add 'All' option at beginning of areas
   final List<String> areaItems = [
     'All',
-    'Ambarkhana','Barutkhana', 'Bondar', 'Chowhatta', 'Chowkidekhi',
+    'Ambarkhana', 'Arambagh', 'Bagbari', 'Barutkhana', 'Bondar', 'Chowhatta', 'Chowkidekhi',
     'Dariapara', 'Dorga Gate', 'Electric Supply', 'Fazil Chisth', 'Hawapara', 'Housing Estate',
     'Jollarpar', 'Kazir Bazar', 'Kazitula', 'Korer Para', 'Kumar para', 'Kuar par', 'Lama Bazar',
     'Londoni Road', 'Laladigir par', 'Mezor Tila', 'Mirabazar', 'Munshi Para', 'Mirboxtula',
     'Mirer Maidan', 'Modina Market', 'Noyasorok', 'Osmani Medical', 'Pathantula', 'Payra',
     'Pir Moholla', 'Rikabi Bazar', 'Subidbazar', 'Sekhghat', 'Shahi Eidgah', 'Shibgonj',
     'Subhanighat', 'Tilaghar', 'Uposhohar A Block', 'Uposhohar B Block', 'Uposhohar C Block',
-    'Uposhohar D Block', 'Uposhohar G Block', 'Uposhohar H Block',
+    'Uposhohar D Block', 'Uposhohar E Block', 'Uposhohar G Block', 'Uposhohar H Block',
     'Uposhohar Plaza', 'Uposhohor', 'Zindabazar',
   ];
 
@@ -47,7 +47,7 @@ class _HouseScreenState extends State<HouseScreen> {
       if (selectedArea == 'All') {
 // Fetch all houses
         snapshot =
-            await FirebaseFirestore.instance.collection('House Owner').get();
+        await FirebaseFirestore.instance.collection('House Owner').get();
       } else {
 // Fetch houses by specific area
         snapshot = await FirebaseFirestore.instance
@@ -102,16 +102,16 @@ class _HouseScreenState extends State<HouseScreen> {
                           ),
                           items: areaItems
                               .map((String item) => DropdownMenuItem<String>(
-                                    value: item,
-                                    child: Text(
-                                      item,
-                                      style: TextStyle(
-                                          fontSize: 14,
-                                          fontWeight: item == 'All'
-                                              ? FontWeight.bold
-                                              : FontWeight.normal),
-                                    ),
-                                  ))
+                            value: item,
+                            child: Text(
+                              item,
+                              style: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: item == 'All'
+                                      ? FontWeight.bold
+                                      : FontWeight.normal),
+                            ),
+                          ))
                               .toList(),
                           value: selectedArea,
                           onChanged: (String? value) {
@@ -124,7 +124,7 @@ class _HouseScreenState extends State<HouseScreen> {
                             width: 200,
                           ),
                           menuItemStyleData:
-                              const MenuItemStyleData(height: 40),
+                          const MenuItemStyleData(height: 40),
                         ),
                       ),
 
@@ -132,11 +132,10 @@ class _HouseScreenState extends State<HouseScreen> {
                       ElevatedButton(
                         onPressed: () {
                           Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const HouseOwner(),
-                            ),
-                          );
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const HouseOwner(),
+                              ));
                         },
                         style: ElevatedButton.styleFrom(
                           padding: const EdgeInsets.symmetric(horizontal: 18.0, vertical: 10.0),
@@ -153,13 +152,9 @@ class _HouseScreenState extends State<HouseScreen> {
                         child: const Text(
                           'House Owner',
                           style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600,
-                            letterSpacing: 1,
-                          ),
+                              fontSize: 15, fontWeight: FontWeight.bold),
                         ),
                       ),
-
                     ],
                   ),
 
@@ -208,7 +203,7 @@ class _HouseScreenState extends State<HouseScreen> {
           height: 150,
           child: Card(
             shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
             elevation: 10,
             child: Row(
               children: [
@@ -254,8 +249,7 @@ class _HouseScreenState extends State<HouseScreen> {
                                 MaterialPageRoute(
                                   builder: (context) =>
                                       HouseDetails(owner: house),
-                                ),
-                            );
+                                ));
                           },
                           style: ElevatedButton.styleFrom(
                             padding: const EdgeInsets.symmetric(horizontal: 10),

@@ -42,6 +42,7 @@ class _HouseOwnerState extends State<HouseOwner> {
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 10),
+
                 DropdownButtonFormField<String>(
                   value: selectedArea,
                   items: areaItems.map((area) => DropdownMenuItem(

@@ -105,7 +105,7 @@ class _HouseAddDetailsState extends State<HouseAddDetails> {
                   const SizedBox(height: 30),
 
                   // Image upload section
-                  _buildImageUploadSection(),
+                 // _buildImageUploadSection(),
                   const SizedBox(height: 20),
 
                   _buildInputField('Description', descriptionController, maxLines: 2),
@@ -146,78 +146,6 @@ class _HouseAddDetailsState extends State<HouseAddDetails> {
     );
   }
 
-  Widget _buildImageUploadSection() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-
-
-        // Image picker button
-        ElevatedButton.icon(
-          onPressed: pickImages,
-          icon: Container(
-            decoration: BoxDecoration(
-              color: Colors.deepPurple.shade50,  // Soft background for the icon
-              borderRadius: BorderRadius.circular(12),
-            ),
-            padding: const EdgeInsets.all(8),
-            child: const Icon(
-              Icons.add_photo_alternate,
-              color: Colors.deepPurple,
-              size: 20,
-            ),
-          ),
-          label: const Text(
-            'Select Images',
-            style: TextStyle(
-              fontWeight: FontWeight.w600,
-              fontSize: 16,
-            ),
-          ),
-          style: ElevatedButton.styleFrom(
-            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-            backgroundColor: Colors.white,
-            foregroundColor: Colors.deepPurple,
-            elevation: 4,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(16),
-            ),
-            side: const BorderSide(color: Colors.transparent),
-          ),
-        ),
-
-
-        const SizedBox(height: 10),
-
-        // Preview selected images
-        if (selectedImages.isNotEmpty)
-          SizedBox(
-            height: 120,
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: selectedImages.length,
-              itemBuilder: (context, index) {
-                return Container(
-                  margin: const EdgeInsets.only(right: 8),
-                  child: Image.file(
-                    selectedImages[index],
-                    width: 100,
-                    height: 100,
-                    fit: BoxFit.cover,
-                  ),
-                );
-              },
-            ),
-          ),
-
-        if (isUploadingImages)
-          const Padding(
-            padding: EdgeInsets.symmetric(vertical: 8),
-            child: LinearProgressIndicator(),
-          ),
-      ],
-    );
-  }
 
   Widget _buildInputField(String hint, TextEditingController controller,
       {TextInputType keyboardType = TextInputType.text, int maxLines = 1}) {
@@ -246,11 +174,6 @@ class _HouseAddDetailsState extends State<HouseAddDetails> {
       return;
     }
 
-    if (selectedImages.isEmpty) {
-      showToast(message: "Please select at least one image");
-      return;
-    }
-
     setState(() => isSubmitting = true);
 
     try {
@@ -265,11 +188,6 @@ class _HouseAddDetailsState extends State<HouseAddDetails> {
 
       // Upload images first
       List<String> imageUrls = await uploadImages();
-
-      if (imageUrls.isEmpty) {
-        showToast(message: "Failed to upload images");
-        return;
-      }
 
       final details = {
         'ownerId': widget.ownerId,
@@ -293,3 +211,4 @@ class _HouseAddDetailsState extends State<HouseAddDetails> {
     }
   }
 }
+
