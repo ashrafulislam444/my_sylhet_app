@@ -104,8 +104,6 @@ class _HouseAddDetailsState extends State<HouseAddDetails> {
                   ),
                   const SizedBox(height: 30),
 
-                  // Image upload section
-                 // _buildImageUploadSection(),
                   const SizedBox(height: 20),
 
                   _buildInputField('Description', descriptionController, maxLines: 2),
@@ -177,7 +175,7 @@ class _HouseAddDetailsState extends State<HouseAddDetails> {
     setState(() => isSubmitting = true);
 
     try {
-      // Parse numerical values
+
       final houseRent = int.tryParse(houseRentController.text);
       final roadNo = int.tryParse(roadNoController.text);
 
@@ -186,7 +184,7 @@ class _HouseAddDetailsState extends State<HouseAddDetails> {
         return;
       }
 
-      // Upload images first
+
       List<String> imageUrls = await uploadImages();
 
       final details = {
@@ -200,7 +198,7 @@ class _HouseAddDetailsState extends State<HouseAddDetails> {
         'createdAt': FieldValue.serverTimestamp(),
       };
 
-      // Save to Firestore
+
       await FirebaseFirestore.instance.collection('House Details').add(details);
       showToast(message: "Details Submitted Successfully");
       Navigator.pop(context);  // Return to previous screen

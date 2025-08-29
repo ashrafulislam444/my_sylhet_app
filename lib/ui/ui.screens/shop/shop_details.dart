@@ -115,19 +115,19 @@ class _ShopDetailsState extends State<ShopDetails> {
                 ),
                 const SizedBox(height: 24),
 
-                // Description Section
+
                 _buildSectionTitle('Description'),
                 const SizedBox(height: 8),
                 _buildDescriptionCard(),
                 const SizedBox(height: 24),
 
-                // Owner Information
+
                 _buildSectionTitle('Owner Information'),
                 const SizedBox(height: 12),
                 _buildOwnerCard(),
                 const SizedBox(height: 20),
 
-                // Contact Button
+
                 Center(
                   child: ElevatedButton.icon(
                     icon: const Icon(Icons.phone),
@@ -155,7 +155,7 @@ class _ShopDetailsState extends State<ShopDetails> {
   }
 
   Widget _buildImageCarousel() {
-    // Get image URLs from Firestore
+
     List<String> imageUrls = (shopDetails?['imageUrls'] as List<dynamic>?)?.cast<String>() ?? [];
 
     if (imageUrls.isEmpty) {

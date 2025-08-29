@@ -107,8 +107,6 @@ class _GarageAddDetailsState extends State<GarageAddDetails> {
                   ),
                   const SizedBox(height: 30),
 
-                  // Image upload section
-                 // _buildImageUploadSection(),
                   const SizedBox(height: 20),
 
                   _buildInputField('Description', descriptionController, maxLines: 2),
@@ -122,7 +120,7 @@ class _GarageAddDetailsState extends State<GarageAddDetails> {
                   _buildInputField('Location Details', locationDetailsController),
                   const SizedBox(height: 20),
 
-                  // Garage Type Dropdown
+
                   const Text(
                     'Garage Type:',
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
@@ -211,7 +209,6 @@ class _GarageAddDetailsState extends State<GarageAddDetails> {
         return;
       }
 
-      // Upload images first
       List<String> imageUrls = await uploadImages();
 
 

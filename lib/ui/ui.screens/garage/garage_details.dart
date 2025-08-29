@@ -78,7 +78,7 @@ class _GarageDetailsState extends State<GarageDetails> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        // Rent & Vehicle Capacity
+
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -95,7 +95,7 @@ class _GarageDetailsState extends State<GarageDetails> {
                         ),
                         const SizedBox(height: 16),
 
-                        // Size & Type
+
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -115,7 +115,6 @@ class _GarageDetailsState extends State<GarageDetails> {
                 ),
                 const SizedBox(height: 24),
 
-                // Location Details
                 _buildSectionTitle('Location Details'),
                 const SizedBox(height: 8),
                 Card(
@@ -133,19 +132,19 @@ class _GarageDetailsState extends State<GarageDetails> {
                 ),
                 const SizedBox(height: 24),
 
-                // Description Section
+
                 _buildSectionTitle('Description'),
                 const SizedBox(height: 8),
                 _buildDescriptionCard(),
                 const SizedBox(height: 24),
 
-                // Owner Information
+
                 _buildSectionTitle('Owner Information'),
                 const SizedBox(height: 12),
                 _buildOwnerCard(),
                 const SizedBox(height: 20),
 
-                // Contact Button
+
                 Center(
                   child: ElevatedButton.icon(
                     icon: const Icon(Icons.phone),
@@ -160,7 +159,7 @@ class _GarageDetailsState extends State<GarageDetails> {
                       ),
                     ),
                     onPressed: () {
-                      // Add contact functionality
+
                     },
                   ),
                 ),
@@ -173,7 +172,7 @@ class _GarageDetailsState extends State<GarageDetails> {
   }
 
   Widget _buildImageCarousel() {
-    // Get image URLs from Firestore
+
     List<String> imageUrls = (garageDetails?['imageUrls'] as List<dynamic>?)?.cast<String>() ?? [];
 
     if (imageUrls.isEmpty) {

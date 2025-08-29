@@ -95,7 +95,7 @@ class _HouseOwnerState extends State<HouseOwner> {
     }
 
     try {
-      // Add house owner to Firestore and get document reference
+
       DocumentReference docRef = await FirebaseFirestore.instance
           .collection('House Owner')
           .add({
@@ -105,7 +105,7 @@ class _HouseOwnerState extends State<HouseOwner> {
 
       showToast(message: 'Submitted Successfully');
 
-      // Navigate to add details screen with owner ID
+
       Navigator.push(
         context,
         MaterialPageRoute(
@@ -113,7 +113,7 @@ class _HouseOwnerState extends State<HouseOwner> {
         ),
       );
 
-      // Clear form
+
       phoneController.clear();
       setState(() => selectedArea = null);
     } catch (e) {

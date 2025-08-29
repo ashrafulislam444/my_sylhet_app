@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-//import 'package:rent_ez/ui/ui.screens/pin_verification_screen.dart';
+
 
 
 import '../ui.widgets/background_body.dart';
@@ -90,10 +90,6 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                     child:ElevatedButton(
                       onPressed: () {
                         passwordReset();
-                        // Navigator.push(context,
-                        //   MaterialPageRoute(builder:(context) => const PinVarification(),
-                        //   ),
-                        // );
                       },
                       child:const Text('Continue',style: TextStyle(
                         fontSize: 20,

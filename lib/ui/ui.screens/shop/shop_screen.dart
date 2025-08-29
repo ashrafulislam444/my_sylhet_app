@@ -35,7 +35,7 @@ class _ShopScreenState extends State<ShopScreen> {
   @override
   void initState() {
     super.initState();
-    fetchShopOwners(); // Fetch all shops on initialization
+    fetchShopOwners();
   }
 
   Future<void> fetchShopOwners() async {
@@ -44,10 +44,10 @@ class _ShopScreenState extends State<ShopScreen> {
     try {
       QuerySnapshot snapshot;
       if (selectedArea == 'All') {
-        // Fetch all shops
+
         snapshot = await FirebaseFirestore.instance.collection('Shop Owner').get();
       } else {
-        // Fetch shops by specific area
+
         snapshot = await FirebaseFirestore.instance
             .collection('Shop Owner')
             .where('address', isEqualTo: selectedArea)
@@ -85,11 +85,11 @@ class _ShopScreenState extends State<ShopScreen> {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  /// Area Dropdown & Shop Owner Button
+
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      /// Area Dropdown
+
                       DropdownButtonHideUnderline(
                         child: DropdownButton2<String>(
                           isExpanded: true,
@@ -162,7 +162,7 @@ class _ShopScreenState extends State<ShopScreen> {
 
                   const SizedBox(height: 20),
 
-                  /// Shop List View
+
                   buildShopListView(),
                 ],
               ),
@@ -209,13 +209,13 @@ class _ShopScreenState extends State<ShopScreen> {
             elevation: 10,
             child: Row(
               children: [
-                // Shop Image
+
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Image.asset('assets/images/Shop.png', width: 120),
                 ),
 
-                // Shop Details
+
                 Expanded(
                   child: Padding(
                     padding: const EdgeInsets.all(2.0),

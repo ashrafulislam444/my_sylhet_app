@@ -63,11 +63,11 @@ class _HouseDetailsState extends State<HouseDetails> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Image Carousel
+
                 _buildImageCarousel(),
                 const SizedBox(height: 24),
 
-                // House Info Card
+
                 Card(
                   elevation: 4,
                   shape: RoundedRectangleBorder(
@@ -95,7 +95,7 @@ class _HouseDetailsState extends State<HouseDetails> {
                         ),
                         const SizedBox(height: 16),
 
-                        // Road & Area
+
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -115,19 +115,19 @@ class _HouseDetailsState extends State<HouseDetails> {
                 ),
                 const SizedBox(height: 24),
 
-                // Description Section
+
                 _buildSectionTitle('Description'),
                 const SizedBox(height: 8),
                 _buildDescriptionCard(),
                 const SizedBox(height: 24),
 
-                // Owner Information
+
                 _buildSectionTitle('Owner Information'),
                 const SizedBox(height: 12),
                 _buildOwnerCard(),
                 const SizedBox(height: 20),
 
-                // Contact Button
+
                 Center(
                   child: ElevatedButton.icon(
                     icon: const Icon(Icons.phone),
@@ -155,7 +155,7 @@ class _HouseDetailsState extends State<HouseDetails> {
   }
 
   Widget _buildImageCarousel() {
-    // Get image URLs from Firestore
+
     List<String> imageUrls = (houseDetails?['imageUrls'] as List<dynamic>?)?.cast<String>() ?? [];
 
     if (imageUrls.isEmpty) {

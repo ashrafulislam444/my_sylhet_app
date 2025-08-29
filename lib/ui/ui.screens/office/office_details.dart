@@ -63,11 +63,11 @@ class _OfficeDetailsState extends State<OfficeDetails> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Image Carousel
+
                 _buildImageCarousel(),
                 const SizedBox(height: 24),
 
-                // Office Info Card
+
                 Card(
                   elevation: 4,
                   shape: RoundedRectangleBorder(
@@ -78,7 +78,7 @@ class _OfficeDetailsState extends State<OfficeDetails> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        // Rent & Office No
+
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -95,7 +95,7 @@ class _OfficeDetailsState extends State<OfficeDetails> {
                         ),
                         const SizedBox(height: 16),
 
-                        // Floor & Building
+
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -115,19 +115,19 @@ class _OfficeDetailsState extends State<OfficeDetails> {
                 ),
                 const SizedBox(height: 24),
 
-                // Description Section
+
                 _buildSectionTitle('Description'),
                 const SizedBox(height: 8),
                 _buildDescriptionCard(),
                 const SizedBox(height: 24),
 
-                // Owner Information
+
                 _buildSectionTitle('Owner Information'),
                 const SizedBox(height: 12),
                 _buildOwnerCard(),
                 const SizedBox(height: 20),
 
-                // Contact Button
+
                 Center(
                   child: ElevatedButton.icon(
                     icon: const Icon(Icons.phone),
@@ -155,7 +155,7 @@ class _OfficeDetailsState extends State<OfficeDetails> {
   }
 
   Widget _buildImageCarousel() {
-    // Get image URLs from Firestore
+
     List<String> imageUrls = (officeDetails?['imageUrls'] as List<dynamic>?)?.cast<String>() ?? [];
 
     if (imageUrls.isEmpty) {

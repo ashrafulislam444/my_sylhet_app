@@ -155,7 +155,6 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
 
       final json = user.toJson();
 
-      //Create document and write data to Firebase
       await docUser.set(json);
 
     } catch (e) {
@@ -163,16 +162,9 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
 
     }
 
-    //Reference to document
-    //final docUser = FirebaseFirestore.instance.collection('feedback').doc();
-
-
-
-    
   }
 }
 
-//create a model object
 
 class User{
   final String message;

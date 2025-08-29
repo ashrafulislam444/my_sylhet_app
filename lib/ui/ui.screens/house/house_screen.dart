@@ -19,7 +19,7 @@ class _HouseScreenState extends State<HouseScreen> {
   List<HouseOwnerModel> houseOwnerList = [];
   bool isLoading = false;
 
-// Add 'All' option at beginning of areas
+
   final List<String> areaItems = [
     'All',
     'Ambarkhana', 'Arambagh', 'Bagbari', 'Barutkhana', 'Bondar', 'Chowhatta', 'Chowkidekhi',
@@ -36,7 +36,7 @@ class _HouseScreenState extends State<HouseScreen> {
   @override
   void initState() {
     super.initState();
-    fetchHouseOwners(); // Fetch all houses on initialization
+    fetchHouseOwners();
   }
 
   Future<void> fetchHouseOwners() async {
@@ -45,11 +45,11 @@ class _HouseScreenState extends State<HouseScreen> {
     try {
       QuerySnapshot snapshot;
       if (selectedArea == 'All') {
-// Fetch all houses
+
         snapshot =
         await FirebaseFirestore.instance.collection('House Owner').get();
       } else {
-// Fetch houses by specific area
+
         snapshot = await FirebaseFirestore.instance
             .collection('House Owner')
             .where('address', isEqualTo: selectedArea)
@@ -87,11 +87,11 @@ class _HouseScreenState extends State<HouseScreen> {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  /// Area Dropdown & House Owner Button
+
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      /// Area Dropdown
+
                       DropdownButtonHideUnderline(
                         child: DropdownButton2<String>(
                           isExpanded: true,
@@ -128,7 +128,7 @@ class _HouseScreenState extends State<HouseScreen> {
                         ),
                       ),
 
-                      /// House Owner Button
+
                       ElevatedButton(
                         onPressed: () {
                           Navigator.push(
@@ -160,7 +160,7 @@ class _HouseScreenState extends State<HouseScreen> {
 
                   const SizedBox(height: 20),
 
-                  /// House List View
+
                   buildHouseListView(),
                 ],
               ),
@@ -207,13 +207,13 @@ class _HouseScreenState extends State<HouseScreen> {
             elevation: 10,
             child: Row(
               children: [
-// House Image
+
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Image.asset('assets/images/Building.png', width: 120),
                 ),
 
-// House Details
+
                 Expanded(
                   child: Padding(
                     padding: const EdgeInsets.all(2.0),

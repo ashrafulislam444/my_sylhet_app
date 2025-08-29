@@ -94,7 +94,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
 
-              // Category Grid
+
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                 child: GridView.count(
@@ -140,7 +140,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // Decorative circle behind icon
+
             Container(
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
